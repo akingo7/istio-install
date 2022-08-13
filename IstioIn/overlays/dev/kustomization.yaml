@@ -8,9 +8,6 @@ kind: Kustomization
 resources:
   - "../../base"
 
-helmGlobals:
-  chartHome: charts
-
 helmCharts:
 ## Istio base chart which contains cluster-wide resources used by the Istio control plane
   - name: base
