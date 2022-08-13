@@ -1,30 +1,34 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+## DEPRECATED. Bases are relative paths or git repository URLs specifying a directory containing a kustomization.yaml file.
+# bases:
+#   - "../../base"
+
 resources:
   - "../../base"
 
 helmCharts:
-# Istio base chart which contains cluster-wide resources used by the Istio control plane
+## Istio base chart which contains cluster-wide resources used by the Istio control plane
   - name: base
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: base
     valuesFile: base-values.yaml
     version: 1.15.0-beta.0
     namespace: istio-system
-# Istio discovery chart which deploys the istiod service
+## Istio discovery chart which deploys the istiod service
   - name: istiod
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: istiod
     valuesFile: istiod-values.yaml
     version: 1.15.0-beta.0
     namespace: istio-system
-# ingress gateway
+## ingress gateway
   - name: gateway
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: gateway
     valuesFile: gateway-values.yaml
     version: 1.15.0-beta.0
-# As a security best practice, istio gateway is deploy in a different namespace from the control plane
+## As a security best practice, istio gateway is deploy in a different namespace from the control plane
     namespace: istio-ingress
 
