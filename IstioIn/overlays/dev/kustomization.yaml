@@ -5,21 +5,26 @@ resources:
   - "../../base"
 
 helmCharts:
+# Istio base chart which contains cluster-wide resources used by the Istio control plane
   - name: base
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: base
     valuesFile: base-values.yaml
     version: 1.15.0-beta.0
-
+    namespace: istio-system
+# Istio discovery chart which deploys the istiod service
   - name: istiod
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: istiod
     valuesFile: istiod-values.yaml
     version: 1.15.0-beta.0
-
+    namespace: istio-system
+# ingress gateway
   - name: gateway
     repo: https://istio-release.storage.googleapis.com/charts
     releaseName: gateway
     valuesFile: gateway-values.yaml
     version: 1.15.0-beta.0
+# As a security best practice, istio gateway is deploy in a different namespace from the control plane
+    namespace: istio-ingress
 
