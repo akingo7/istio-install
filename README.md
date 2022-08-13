@@ -8,6 +8,7 @@ Contains Kustomization file that Installs Istio Base, Istiod and Gateway with va
 The manifest file can be built using the command below:
 
 ```sh
+cd IstioIn/overlays/<stage>/
 kubectl kustomize --enable-helm
 ```
 
