@@ -15,5 +15,5 @@ kubectl kustomize --enable-helm
 Apply with:
 
 ```sh
-kubectl kustomize --enable-helm | kubectl apply -f -
+kubectl kustomize --enable-helm --enable-alpha-plugins | kubectl apply -f -
 ```
