@@ -31,3 +31,9 @@ helmCharts:
     version: 1.15.0-beta.0
 ## As a security best practice, istio gateway is deploy in a different namespace from the control plane
     namespace: istio-ingress
+
+  - name: kiali
+    repo: https://kiali.org/helm-charts
+    releaseName: kiali-server
+    valuesFile: ""
+    
