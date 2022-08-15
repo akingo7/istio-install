@@ -36,4 +36,6 @@ helmCharts:
     repo: https://kiali.org/helm-charts
     releaseName: kiali-server
     valuesFile: ""
+
+    namespace: istio-system
     
